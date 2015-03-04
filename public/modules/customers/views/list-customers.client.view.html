@@ -1,0 +1,87 @@
+<section data-ng-controller="CustomersController">
+    <div class="page-header">
+        <h1>Trend Media</h1>
+    </div>
+    <div>
+     <select class="form-control" data-ng-options="o.country for o in options" data-ng-model="selectedOption" ng-change="changedValue(selectedOption)"> Select Country
+      </select>
+     <textarea class="form-control" ng-model="tweetText" rows="4" cols="7"></textarea>
+     <button class="btn btn-lg btn-primary" ng-click="onClick()"> 
+        Send Twitter
+     </button>     
+    </div>
+    <button class="undecorated-link" ng-click="onYoutube()">
+            <img src="/modules/users/img/buttons/google.png">
+        </button> 
+    <!--div class="alert alert-warning text-center" ng-show="!messageerror">
+        pailas
+    </div-->  
+    <div class="alert alert-success text-center" ng-show="(messageerror === 'send')">
+        tweet send
+    </div> 
+    <div class="alert alert-danger text-center" ng-show="(messageerror === 'error')">
+        {{mensagge}}
+    </div>    
+    <div>
+        <table ng-table="tableParams"> 
+            <tr ng-repeat="customer in $data">
+                <td data-title="'Name Video'" sortable="'name'">{{customer.videos.snippet.title}}
+                    <div>
+                        <img ng-src="{{customer.videos.snippet.thumbnails.default.url}}"></img>
+                    </div></td>    
+                <!--td data-title="'Address'" sortable="'address'">{{customer.address}}</td-->
+                <!--td data-title="'Address'" sortable="'address'">{{customer.address}}</td-->
+                <!--td data-title="'State'" sortable="'state'">{{customer.state}}</td-->
+                <!--td data-title="'Country'" sortable="'country'">{{customer.country}}</td-->
+                <td>
+                    <div>
+                        <textarea class="form-control" ng-model="tableParams.data[$index].videos.etag" ng-init="$scope.tableParams.data[$index].videos.etag=' '" rows="4" cols="7">
+                            </textarea>
+                        <button class="btn btn-lg btn-primary" ng-click="onClick2(tableParams.data[$index].videos.etag,customer,$index)">
+                            Send Twitter
+                        </button> 
+                        <!--div class="alert alert-warning text-center" ng-show="!messageerror[$index]">
+                        pailas
+                        </div-->  
+                        <div class="alert alert-success text-center" ng-show="(tableParams.data[$index].videos.kind.item1 === 'send')">
+                            tweet send
+                        </div> 
+                        <div class="alert alert-danger text-center" ng-show="(tableParams.data[$index].videos.kind.item1 === 'error')">
+                            {{tableParams.data[$index].videos.kind.item2}}
+                        </div>                         
+                        <!--a class="btn btn-default" title="view" href="/#!/customers/{{customer._id}}">
+                                <span class="glyphicon glyphicon-eye-open"></span>  class="table-actions"
+                        </a>
+                        <a class="btn btn-default" title="Edit" href="/#!/customers/{{customer._id}}/edit">
+                                <span class="glyphicon glyphicon-edit"></span>
+                        </a>ng-init="tweetText= tweetText + ' http://youtu.be/' + customer.videos.id.videoId" customer.videos.snippet.title
+                        <button type="button" class="btn btn-danger" title="Remove" 
+                        data-ng-click="remove(customer)">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                        </button-->
+                    </div>    
+                </td>   
+            </tr>    
+        </table>
+    </div>    
+
+    <!--
+    <div class="list-group">
+        <a data-ng-repeat="customer in customers" data-ng-href="#!/customers/{{customer._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="customer.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="customer.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="customer.name"></h4>
+            Address: {{customer.address}}<br/>
+            State: {{customer.state}}<br/>
+            Country: {{customer.country}}<br/>
+        </a>
+    </div>
+-->
+    <div class="alert alert-warning text-center" data-ng-hide="!customers.$resolved || customers.length">
+    	No Customers yet, why don't you <a href="/#!/customers/create">create one</a>?
+    </div>
+</section>
