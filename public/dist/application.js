@@ -48,8 +48,8 @@ ApplicationConfiguration.registerModule('core');
 'use strict';
 
 // Use applicaion configuration module to register a new module
-ApplicationConfiguration.registerModule('customers');
-angular.module('customers', ['ngTable']);
+ApplicationConfiguration.registerModule('customers', ['ngTable']);
+
 'use strict';
 
 // Use Applicaion configuration module to register a new module
@@ -332,6 +332,7 @@ angular.module('customers').config(['$stateProvider',
 ]);
 'use strict';
 //angular.module('customers', ['ngTable', 'ngResource', 'ngCookies',  'ngAnimate',  'ngTouch',  'ngSanitize',  'ui.router', 'ui.bootstrap', 'ui.utils', 'btford.socket-io']);
+//angular.module('customers', ['ngTable']);
 // Customers controller
 angular.module('customers').controller('CustomersController', ['$http', '$scope', '$stateParams', '$location', 'Socket', 'Authentication', 'Customers',  'ngTableParams', 
 	function($http, $scope, $stateParams, $location, Socket, Authentication, Customers,  ngTableParams) {
