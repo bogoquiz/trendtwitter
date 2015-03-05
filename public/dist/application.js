@@ -48,7 +48,8 @@ ApplicationConfiguration.registerModule('core');
 'use strict';
 
 // Use applicaion configuration module to register a new module
-ApplicationConfiguration.registerModule('customers',['ngTable']);
+ApplicationConfiguration.registerModule('customers');
+angular.module('customers', ['ngTable']);
 'use strict';
 
 // Use Applicaion configuration module to register a new module
