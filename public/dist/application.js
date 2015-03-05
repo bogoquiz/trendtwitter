@@ -4,7 +4,7 @@
 var ApplicationConfiguration = (function() {
 	// Init module configuration options
 	var applicationModuleName = 'trend-twitter2';
-	var applicationModuleVendorDependencies = ['ngResource', 'ngCookies',  'ngAnimate',  'ngTouch',  'ngSanitize',  'ui.router', 'ui.bootstrap', 'ui.utils', 'ngTable', 'btford.socket-io'];
+	var applicationModuleVendorDependencies = ['ngResource', 'ngCookies',  'ngAnimate',  'ngTouch',  'ngSanitize',  'ui.router', 'ui.bootstrap', 'ui.utils', 'btford.socket-io'];
 
 	// Add a new vertical module
 	var registerModule = function(moduleName, dependencies) {
@@ -38,7 +38,7 @@ angular.element(document).ready(function() {
 	//Fixing facebook bug with redirect
 	if (window.location.hash === '#_=_') window.location.hash = '#!';
 
-	//Then init the app gonorrea
+	//Then init the app 
 	angular.bootstrap(document, [ApplicationConfiguration.applicationModuleName]);
 });
 'use strict';
@@ -48,7 +48,7 @@ ApplicationConfiguration.registerModule('core');
 'use strict';
 
 // Use applicaion configuration module to register a new module
-ApplicationConfiguration.registerModule('customers');
+ApplicationConfiguration.registerModule('customers',['ngTable']);
 'use strict';
 
 // Use Applicaion configuration module to register a new module
@@ -291,6 +291,7 @@ angular.module('core').factory('Socket', ['socketFactory',
 ]);
 'use strict';
 
+
 // Configuring the Articles module
 angular.module('customers').run(['Menus',
 	function(Menus) {
@@ -300,6 +301,9 @@ angular.module('customers').run(['Menus',
 		Menus.addSubMenuItem('topbar', 'customers', 'New Customer', 'customers/create');
 	}
 ]);
+
+
+//angular.module('customers', 'ngTable');
 'use strict';
 
 //Setting up route
@@ -326,10 +330,10 @@ angular.module('customers').config(['$stateProvider',
 	}
 ]);
 'use strict';
-
+//angular.module('customers', ['ngTable', 'ngResource', 'ngCookies',  'ngAnimate',  'ngTouch',  'ngSanitize',  'ui.router', 'ui.bootstrap', 'ui.utils', 'btford.socket-io']);
 // Customers controller
-angular.module('customers').controller('CustomersController', ['$http', '$scope', '$stateParams', '$location', 'Socket', 'Authentication', 'Customers', 'ngTableParams', 
-	function($http, $scope, $stateParams, $location, Socket, Authentication, Customers, ngTableParams) {
+angular.module('customers').controller('CustomersController', ['$http', '$scope', '$stateParams', '$location', 'Socket', 'Authentication', 'Customers',  'ngTableParams', 
+	function($http, $scope, $stateParams, $location, Socket, Authentication, Customers,  ngTableParams) {
 		$scope.authentication = Authentication;
 /*
 	    $scope.countryTwitter = function(){
