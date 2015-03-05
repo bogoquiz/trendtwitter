@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Configuring the Articles module
 angular.module('customers').run(['Menus',
 	function(Menus) {
@@ -9,3 +10,6 @@ angular.module('customers').run(['Menus',
 		Menus.addSubMenuItem('topbar', 'customers', 'New Customer', 'customers/create');
 	}
 ]);
+
+
+//angular.module('customers', 'ngTable');

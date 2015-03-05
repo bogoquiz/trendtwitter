@@ -1,8 +1,8 @@
 'use strict';
-
+//angular.module('customers', ['ngTable', 'ngResource', 'ngCookies',  'ngAnimate',  'ngTouch',  'ngSanitize',  'ui.router', 'ui.bootstrap', 'ui.utils', 'btford.socket-io']);
 // Customers controller
-angular.module('customers').controller('CustomersController', ['$http', '$scope', '$stateParams', '$location', 'Socket', 'Authentication', 'Customers', 'ngTableParams', 
-	function($http, $scope, $stateParams, $location, Socket, Authentication, Customers, ngTableParams) {
+angular.module('customers').controller('CustomersController', ['$http', '$scope', '$stateParams', '$location', 'Socket', 'Authentication', 'Customers',  'ngTableParams', 
+	function($http, $scope, $stateParams, $location, Socket, Authentication, Customers,  ngTableParams) {
 		$scope.authentication = Authentication;
 /*
 	    $scope.countryTwitter = function(){

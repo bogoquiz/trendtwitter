@@ -1,4 +1,4 @@
 'use strict';
 
 // Use applicaion configuration module to register a new module
-ApplicationConfiguration.registerModule('customers');
+ApplicationConfiguration.registerModule('customers',['ngTable']);
