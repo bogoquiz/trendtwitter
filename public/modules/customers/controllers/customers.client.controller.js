@@ -55,7 +55,7 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 			}else{
 				
 				$scope.messageerror = 'send';
-				$scope.mensagge = mensagge.message;
+				$scope.mensagge = mensagge[0].message;
 				
 			}
 		}else {
@@ -63,14 +63,14 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 			//console.log($scope.tableParams.data[index1].videos.kind.item1);
 			if (index1 !== 'null'){
 				$scope.tableParams.data[index1].videos.kind.item1 = 'error';
-				console.log(mensagge.message);
+				console.log(mensagge[0].message);
 				$scope.tableParams.data[index1].videos.kind.item2 = mensagge[0].message;
 				console.log(mensagge);
 				index1 = 'null';
 				
 			}else{
 				$scope.messageerror = 'error';
-				$scope.mensagge = mensagge.message;
+				$scope.mensagge = mensagge[0].message;
 				
 			}
 			//$scope.messageerror = 'error';

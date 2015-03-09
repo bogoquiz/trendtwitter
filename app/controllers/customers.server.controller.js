@@ -211,7 +211,9 @@ exports.list = function(req, res) {
 
             	});
 				});*/
-				var item = { item1: 'uuu', item2: 'uuu', item3: 'uuu'};
+				var item = { item1: 'Tweet dupiclate  or more than 140 characters', 
+							 item2: 'Tweet dupiclate  or more than 140 characters',
+							 item3: 'Tweet dupiclate  or more than 140 characters'};
 				for (var i = videos.results.length - 1; i >= 0; i--) {
 					videos.results[i].videos.kind = (videos.results[i].videos.kind,item);
 				}
