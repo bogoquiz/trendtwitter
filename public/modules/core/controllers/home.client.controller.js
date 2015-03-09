@@ -5,17 +5,17 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 	function($scope, Authentication) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
-		var baseURL='http://lorempixel.com/960/350/';
+		var baseURL='http://lorempixel.com/960/300/';
   	$scope.setInterval=5000;
 
   	$scope.slides = [
    	{
-         title:'TREND MEDIA beta version',
+         title:'trend media beta',
          image:baseURL+'city/',
          text:'Want more people to see your tweets?'
    	},
    	{
-         title:'TWITTER',
+         title:'twitter',
          image:baseURL+'abstract/',
          text:'¡tweets seen by the trending topic country you choose!'
    	},

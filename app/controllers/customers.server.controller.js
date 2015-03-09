@@ -196,7 +196,7 @@ exports.list = function(req, res) {
 
   			Country.find(function(err, country){
   				var socketio = req.app.get('socketio'); // tacke out socket instance from the app container
-            	//console.log(country);
+            	console.log(country);
 				socketio.sockets.emit('article.created', country); // emit an event for all connected clients
   			});
 

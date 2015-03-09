@@ -55,7 +55,7 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 			}else{
 				
 				$scope.messageerror = 'send';
-				$scope.mensagge = mensagge;
+				$scope.mensagge = mensagge.message;
 				
 			}
 		}else {
@@ -70,7 +70,7 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 				
 			}else{
 				$scope.messageerror = 'error';
-				$scope.mensagge = mensagge;
+				$scope.mensagge = mensagge.message;
 				
 			}
 			//$scope.messageerror = 'error';
