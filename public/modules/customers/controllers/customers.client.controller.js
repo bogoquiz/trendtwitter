@@ -38,6 +38,7 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 		
 		Socket.emit('user', Authentication);
 		Socket.emit('updatetw', $scope.tweetText);
+		console.log(Authentication,'hii');
 		
 		
 	};
