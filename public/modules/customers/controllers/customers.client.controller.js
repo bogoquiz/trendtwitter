@@ -28,6 +28,11 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 		
 	};
 
+
+	$scope.Bucle = function(){
+		Socket.emit('bucle', Authentication);
+	};
+	
 	$scope.onClick = function(){
 		
 		Socket.emit('user', Authentication);

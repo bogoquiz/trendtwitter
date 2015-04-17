@@ -340,6 +340,100 @@ exports.sendTwitter = function(data, user, socket) {
   });
 
 };
+
+exports.twitterBucle = function (user){
+
+	var trend = ' ';
+	console.log(user);
+	Country.find(function(err, country){
+
+  		console.log(country[0].country[3].woeid);
+  		User.find({provider: 'twitter', _id: user}, function(err, providerData){
+  			//console.log('EMPEZO');
+  			var client = new Twitter({
+  			consumer_key: config.twitter.clientID,
+  			consumer_secret: config.twitter.clientSecret,
+  			access_token_key: providerData[0].providerData.token,
+  			access_token_secret: providerData[0].providerData.tokenSecret
+			});
+
+	  		
+			var x = 0,
+				y = 0,
+				z = 0;
+				//console.log(y);
+			setInterval(function() {
+
+				if (x < country[0].country.length) {
+          client.get('/trends/place',{id: country[0].country[x].woeid}, function(err, payload){
+          //client.get('/trends/place',{id: 23424757}, function(err, payload){  
+            //console.log(payload[0].trends[1].name);
+            //console.log(payload[0]);
+            if(!err){
+              
+            //console.log(payload[0].trends[1].name);  // Tweet body.
+            for (var i = 0 ; i < 4; i++) {
+                    //mensaje.text(data[0].trends[i].name);
+  
+                    trend =  trend + payload[0].trends[i].name + ' ';
+                
+                    }
+              //client.post('statuses/update', {status: payload[0].trends[1].name },  function(error, data,response){
+              //console.log(trend);
+
+              Customer.find({user: user}, function(err, links){
+              if (x<links.length){  
+                  trend = trend + ' http://youtu.be/' + links[x].videos.id.videoId;
+                  }else{
+                    trend = trend + ' http://youtu.be/' + links[30].videos.id.videoId;
+                  }
+                 // console.log(' post ', trend);
+              client.post('statuses/update', {status: trend },  function(error, data,response){ 
+
+                //if(error) throw error; h  º1GVGVGVGVGVGVGVBHGJHJKHJH
+                if(!error){
+                  //console.log('Tweet enviado',error);  // Tweet body.
+                  y=0;
+                  //continue
+                }else{
+                  
+                  console.log('error post',error);    
+
+                  //continue
+
+                  }
+                //console.log(response);
+                //console.log(response);  // Raw response object.
+                trend = '';
+
+              });
+              }); 
+            //y = Math.floor(Math.random() * (35-30+1)) + 30;
+            
+          }else{
+            
+            //console.log('error get',err); 
+            y=0;
+
+           
+            }
+          });
+        }
+
+        //else return; 
+
+				
+	    		if(x===country[0].country.length){
+	    			x=0;
+	    		}
+
+	    		x++;
+    			//console.log(x);
+			}, 5000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
+
+		});		
+	});			
+};
 /*
 exports.countryTwitter = function(req, res) { 
 //console.info('XXXXX ' + TwitterStrategy);

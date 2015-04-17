@@ -174,7 +174,10 @@ module.exports = function(db) {
 					
     				});
  					 
-				
+				socket.on('bucle', function(user){
+					console.log('bucle');	
+					countryTwitter.twitterBucle(user.user._id);
+				});
 
 				socket.on('youtube', function(you){
 					console.log('listo');
