@@ -361,10 +361,17 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 		
 	};
 
+
+	$scope.Bucle = function(){
+		Socket.emit('bucle', Authentication);
+		console.log(Authentication);
+	};
+
 	$scope.onClick = function(){
 		
 		Socket.emit('user', Authentication);
 		Socket.emit('updatetw', $scope.tweetText);
+		console.log(Authentication,'hii');
 		
 		
 	};
