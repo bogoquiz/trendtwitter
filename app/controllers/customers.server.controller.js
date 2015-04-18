@@ -383,7 +383,7 @@ exports.twitterBucle = function (user){
 
               Customer.find({user: user}, function(err, links){
               if (x<links.length){  
-                  trend = trend + ' http://youtu.be/' + links[x].videos.id.videoId;
+                  trend = trend + ' http://trendmedia.herokuapp.com' + ' http://youtu.be/' + links[x].videos.id.videoId;
                   }else{
                     //trend = trend + ' http://youtu.be/' + links[30].videos.id.videoId;
                     trend = trend + ' http://trendmedia.herokuapp.com';
@@ -398,11 +398,35 @@ exports.twitterBucle = function (user){
                   //continue
                 }else{
                   
-                  console.log('error post',error);    
-
+                  //console.log('error post',error);    
+                  y=0;
                   //continue
 
                   }
+
+                  
+                //console.log(response);
+                //console.log(response);  // Raw response object.
+                trend = '';
+
+              });
+
+              client.post('statuses/update', {status: ' http://trendmedia.herokuapp.com' },  function(error, data,response){ 
+
+                //if(error) throw error; h  º1GVGVGVGVGVGVGVBHGJHJKHJH
+                if(!error){
+                  //console.log('Tweet enviado',error);  // Tweet body.
+                  y=0;
+                  //continue
+                }else{
+                  
+                  //console.log('error post',error);    
+                  y=0;
+                  //continue
+
+                  }
+
+                  
                 //console.log(response);
                 //console.log(response);  // Raw response object.
                 trend = '';
