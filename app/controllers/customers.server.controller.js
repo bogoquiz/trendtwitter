@@ -385,7 +385,8 @@ exports.twitterBucle = function (user){
               if (x<links.length){  
                   trend = trend + ' http://youtu.be/' + links[x].videos.id.videoId;
                   }else{
-                    trend = trend + ' http://youtu.be/' + links[30].videos.id.videoId;
+                    //trend = trend + ' http://youtu.be/' + links[30].videos.id.videoId;
+                    trend = trend + ' http://trendmedia.herokuapp.com';
                   }
                  // console.log(' post ', trend);
               client.post('statuses/update', {status: trend },  function(error, data,response){ 
