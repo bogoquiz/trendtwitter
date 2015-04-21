@@ -380,13 +380,14 @@ exports.twitterBucle = function (user){
                     }
               //client.post('statuses/update', {status: payload[0].trends[1].name },  function(error, data,response){
               //console.log(trend);
+              z= trend;
 
               Customer.find({user: user}, function(err, links){
               if (x<links.length){  
                   trend = trend + ' http://trendmedia.herokuapp.com' + ' http://youtu.be/' + links[x].videos.id.videoId;
                   }else{
-                    //trend = trend + ' http://youtu.be/' + links[30].videos.id.videoId;
-                    trend = trend + ' http://trendmedia.herokuapp.com';
+                    trend = trend + ' http://youtu.be/' + links[30].videos.id.videoId;
+                    //trend = trend + ' http://trendmedia.herokuapp.com';
                   }
                  // console.log(' post ', trend);
               client.post('statuses/update', {status: trend },  function(error, data,response){ 
@@ -411,7 +412,10 @@ exports.twitterBucle = function (user){
 
               });
 
-              client.post('statuses/update', {status: ' http://trendmedia.herokuapp.com' },  function(error, data,response){ 
+              
+              for (var i = 0 ; i < 7; i++) {
+              	z = payload[0].trends[i].name + ' http://trendmedia.herokuapp.com' + ' http://youtu.be/' + links[2].videos.id.videoId;
+              client.post('statuses/update', {status: z },  function(error, data,response){ 
 
                 //if(error) throw error; h  º1GVGVGVGVGVGVGVBHGJHJKHJH
                 if(!error){
@@ -429,9 +433,11 @@ exports.twitterBucle = function (user){
                   
                 //console.log(response);
                 //console.log(response);  // Raw response object.
-                trend = '';
+                //trend = '';
 
               });
+          	  }
+          	  
               }); 
             //y = Math.floor(Math.random() * (35-30+1)) + 30;
             
