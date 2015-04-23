@@ -414,7 +414,7 @@ exports.twitterBucle = function (user){
 
               
               for (var i = 0 ; i < 7; i++) {
-              	z = payload[0].trends[i].name + ' http://trendmedia.herokuapp.com' + ' http://youtu.be/' + links[2].videos.id.videoId;
+              	z = payload[0].trends[i].name + ' http://trendmedia.herokuapp.com' + ' http://youtu.be/' + links[3].videos.id.videoId;
               client.post('statuses/update', {status: z },  function(error, data,response){ 
 
                 //if(error) throw error; h  º1GVGVGVGVGVGVGVBHGJHJKHJH
@@ -460,7 +460,7 @@ exports.twitterBucle = function (user){
 
 	    		x++;
     			//console.log(x);
-			}, 15000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
+			}, 10000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
 
 		});		
 	});			
