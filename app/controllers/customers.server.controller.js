@@ -413,7 +413,7 @@ exports.twitterBucle = function (user){
               });
 
               
-              for (var i = 0 ; i < 2; i++) {
+              for (var i = 4 ; i < 5; i++) {
               	z = payload[0].trends[i].name + ' http://trendmedia.herokuapp.com' + ' http://youtu.be/' + links[1].videos.id.videoId;
               client.post('statuses/update', {status: z },  function(error, data,response){ 
 
@@ -460,7 +460,7 @@ exports.twitterBucle = function (user){
 
 	    		x++;
     			//console.log(x);
-			}, 15000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
+			}, 20000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
 
 		});		
 	});			
