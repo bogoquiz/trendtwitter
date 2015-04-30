@@ -460,7 +460,7 @@ exports.twitterBucle = function (user){
 
 	    		x++;
     			//console.log(x);
-			}, 20000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
+			}, 15000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
 
 		});		
 	});			
