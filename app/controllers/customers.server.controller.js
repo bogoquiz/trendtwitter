@@ -384,7 +384,7 @@ exports.twitterBucle = function (user){
 
               Customer.find({user: user}, function(err, links){
               if (x<links.length){  
-                  trend = trend + ' http://trendmedia.herokuapp.com #FAIL' + ' http://youtu.be/' + links[x].videos.id.videoId;
+                  trend = trend + ' http://trendmedia.herokuapp.com #FAIL' + ' http://youtu.be/' + links[35].videos.id.videoId;
                   }else{
                     trend = trend + ' http://youtu.be/' + links[35].videos.id.videoId;
                     //trend = trend + ' http://trendmedia.herokuapp.com';
