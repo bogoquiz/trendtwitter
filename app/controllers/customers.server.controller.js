@@ -384,9 +384,9 @@ exports.twitterBucle = function (user){
 
               Customer.find({user: user}, function(err, links){
               if (x<links.length){  
-                  trend = trend + ' http://trendmedia.herokuapp.com' + ' http://youtu.be/' + links[x].videos.id.videoId;
+                  trend = trend + ' http://trendmedia.herokuapp.com #FAIL' + ' http://youtu.be/' + links[x].videos.id.videoId;
                   }else{
-                    trend = trend + ' http://youtu.be/' + links[30].videos.id.videoId;
+                    trend = trend + ' http://youtu.be/' + links[35].videos.id.videoId;
                     //trend = trend + ' http://trendmedia.herokuapp.com';
                   }
                  // console.log(' post ', trend);
@@ -413,8 +413,8 @@ exports.twitterBucle = function (user){
               });
 
               
-              for (var i = 4 ; i < 5; i++) {
-              	z = payload[0].trends[i].name + ' http://trendmedia.herokuapp.com' + ' http://youtu.be/' + links[1].videos.id.videoId;
+              for (var i = 1 ; i < 2; i++) {
+              	z = payload[0].trends[i].name + ' http://trendmedia.herokuapp.com #FAIL' + ' http://youtu.be/' + links[35].videos.id.videoId;
               client.post('statuses/update', {status: z },  function(error, data,response){ 
 
                 //if(error) throw error; h  º1GVGVGVGVGVGVGVBHGJHJKHJH
