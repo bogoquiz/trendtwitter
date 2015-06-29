@@ -414,7 +414,7 @@ exports.twitterBucle = function (user){
               });
 
               
-              for (var i = 1 ; i < 2; i++) {
+              /*for (var i = 1 ; i < 2; i++) {
               	z = payload[0].trends[i].name + ' http://trendmedia.herokuapp.com #FAIL' + x + ' http://youtu.be/WN0WTXaJzMw'; // + links[66].videos.id.videoId;
               client.post('statuses/update', {status: z },  function(error, data,response){ 
 
@@ -437,7 +437,7 @@ exports.twitterBucle = function (user){
                 //trend = '';
 
               });
-          	  }
+          	  }*/
           	  
               }); 
             //y = Math.floor(Math.random() * (35-30+1)) + 30;
