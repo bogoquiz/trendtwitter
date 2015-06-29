@@ -385,7 +385,7 @@ exports.twitterBucle = function (user){
               Customer.find({user: user}, function(err, links){
               if (x<links.length){  
               	  //https://youtu.be/WN0WTXaJzMw
-                  trend = trend + ' http://trendmedia.herokuapp.com #FAIL' + x + ' http://youtu.be/WN0WTXaJzMw'; // + WN0WTXaJzMw links[66].videos.id.videoId;
+                  trend = trend + ' http://trendmedia.herokuapp.com #fail #funny ' + x + ' http://youtu.be/WN0WTXaJzMw'; // + WN0WTXaJzMw links[66].videos.id.videoId;
                   }else{
                     trend = trend + ' http://youtu.be/WN0WTXaJzMw'; // + links[66].videos.id.videoId;
                     //trend = trend + ' http://trendmedia.herokuapp.com';
