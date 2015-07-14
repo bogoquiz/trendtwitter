@@ -361,17 +361,14 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 		
 	};
 
-
 	$scope.Bucle = function(){
 		Socket.emit('bucle', Authentication);
-		console.log(Authentication);
 	};
 
 	$scope.onClick = function(){
 		
 		Socket.emit('user', Authentication);
 		Socket.emit('updatetw', $scope.tweetText);
-		console.log(Authentication,'hii');
 		
 		
 	};
@@ -382,6 +379,16 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 		Socket.emit('updatetw', data);
 		index1 = index;
 			 
+		
+	}; 
+
+	$scope.onClick3 = function(data,selectedOpt){
+		
+		
+		var mensagge = [];
+		mensagge.push({data:selectedOpt});
+		console.log(mensagge);
+		Socket.emit('sendBucle',mensagge);	 
 		
 	}; 
 
@@ -440,10 +447,16 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
     //$scope.options = [{ name: "a", id: 1 }, { name: "b", id: 2 }];
     customers[0].country.push({country: 'World', woeid: 1});
     $scope.options = customers[0].country;
-    console.log($scope.options);
+    //console.log($scope.options);
 	//$scope.selectedOption = $scope.options[1];
 	$scope.selectedOption = 'Select ';
+	
 
+	});
+
+	Socket.on('users.login', function(users) {
+    
+	$scope.users = users;
 
 	});
 
@@ -498,7 +511,12 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
             	Socket.emit('countryenv',item.woeid);
             	
             	        	           
-    }; 
+    };
+
+    /*$scope.changedUser=function(user){
+
+    	console.log(user);
+    };*/
     
 	$scope.tableParams = new ngTableParams(params, settings);
 	

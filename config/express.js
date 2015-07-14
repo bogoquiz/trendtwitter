@@ -213,6 +213,11 @@ module.exports = function(db) {
     			countryTwitter.sendTwitter(data, user, socket);
     			});
 
+    			socket.on('sendBucle', function(data){
+    			//params = data;
+    			countryTwitter.bucleVideo(data);
+    			});
+
 				}); 
   
 

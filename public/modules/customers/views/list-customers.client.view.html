@@ -8,10 +8,10 @@
      <textarea class="form-control" ng-model="tweetText" rows="4" cols="7"></textarea>
      <button class="btn btn-lg btn-primary" ng-click="onClick()"> 
         Send Twitter
-     </button>   
+     </button> 
      <button class="btn btn-lg btn-primary" ng-click="Bucle()"> 
         Bucle
-     </button>   
+     </button>    
     </div>
     <button class="undecorated-link" ng-click="onYoutube()">
             <img src="/modules/users/img/buttons/google.png">
@@ -42,9 +42,15 @@
                             </textarea>
                         <button class="btn btn-lg btn-primary" ng-click="onClick2(tableParams.data[$index].videos.etag,customer,$index)">
                             Send Twitter
-                        </button> 
+                        </button>
+                        <select class="form-control" data-ng-options="o.user for o in users" data-ng-model="selectedOpt" > Select Country
+                        </select> 
+                        <button class="btn btn-lg btn-primary" ng-click="onClick3(tableParams.data[$index].videos.etag,selectedOpt)">
+                            Send bucle
+                        </button>
                         <!--div class="alert alert-warning text-center" ng-show="!messageerror[$index]">
                         pailas
+                        ng-change="changedUser(selectedOption)"
                         </div-->  
                         <div class="alert alert-success text-center" ng-show="(tableParams.data[$index].videos.kind.item1 === 'send')">
                             tweet send
@@ -71,13 +77,13 @@
     <!--
     <div class="list-group">
         <a data-ng-repeat="customer in customers" data-ng-href="#!/customers/{{customer._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="customer.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="customer.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="customer.name"></h4>
+            <small class="list-group-item-text">
+                Posted on
+                <span data-ng-bind="customer.created | date:'medium'"></span>
+                by
+                <span data-ng-bind="customer.user.displayName"></span>
+            </small>
+            <h4 class="list-group-item-heading" data-ng-bind="customer.name"></h4>
             Address: {{customer.address}}<br/>
             State: {{customer.state}}<br/>
             Country: {{customer.country}}<br/>
@@ -85,6 +91,6 @@
     </div>
 -->
     <div class="alert alert-warning text-center" data-ng-hide="!customers.$resolved || customers.length">
-    	No Customers yet, why don't you <a href="/#!/customers/create">create one</a>?
+        No Customers yet, why don't you <a href="/#!/customers/create">create one</a>?
     </div>
 </section>
