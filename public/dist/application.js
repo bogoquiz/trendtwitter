@@ -385,10 +385,10 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 	$scope.onClick3 = function(data,selectedOpt){
 		
 		
-		var mensagge = [];
+		/*var mensagge = [];
 		mensagge.push({data:selectedOpt});
-		console.log(mensagge);
-		Socket.emit('sendBucle',mensagge);	 
+		console.log(mensagge);*/
+		Socket.emit('sendBucle',data);	 
 		
 	}; 
 
