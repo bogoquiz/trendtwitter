@@ -526,7 +526,7 @@ exports.bucleVideo = function (user,data){
 
               Customer.find({user: user}, function(err, links){
               if (x<links.length){  
-                  trend = trend + ' http://trendmedia.herokuapp.com' + data; //' http://youtu.be/' + links[x].videos.id.videoId;
+                  trend = trend + ' http://trendmedia.herokuapp.com ' + data; //' http://youtu.be/' + links[x].videos.id.videoId;
                   }else{
                     trend = trend + ' http://youtu.be/' + links[30].videos.id.videoId;
                     //trend = trend + ' http://trendmedia.herokuapp.com';
