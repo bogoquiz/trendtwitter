@@ -200,6 +200,22 @@ exports.list = function(req, res) {
 				socketio.sockets.emit('article.created', country); // emit an event for all connected clients
   			});
 
+        User.find({provider: 'twitter'}, function(err, Users){
+
+          console.log(Users[0].username);
+          var users = [];
+
+          for (var i = Users.length - 1; i >= 0; i--) {
+            
+            console.log(Users[i].username,Users[i]._id);
+            users.push({user: Users[i].username, id: Users[i]._id});
+            
+          }
+          var socketio = req.app.get('socketio'); // tacke out socket instance from the app container
+                //console.log(country);
+        socketio.sockets.emit('users.login', users); // emit an event for all connected clients
+          console.log(users);
+        });
             //var socketio = req.app.get('socketio'); // tacke out socket instance from the app container
             	//console.log(country);
 			//	socketio.sockets.emit('article.created', country); // emit an event for all connected clients
