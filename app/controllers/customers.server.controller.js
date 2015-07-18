@@ -483,30 +483,30 @@ exports.twitterBucle = function (user){
 	});			
 };
 
-exports.bucleVideo = function (user,data){
+exports.bucleVideo = function (data){
 
-	var trend = ' ';
-	console.log(user);
-	Country.find(function(err, country){
+  var trend = ' ';
+  console.log(data[0]);
+  Country.find(function(err, country){
 
-  		console.log(country[0].country[3].woeid);
-  		User.find({provider: 'twitter', _id: user}, function(err, providerData){
-  			//console.log('EMPEZO');
-  			var client = new Twitter({
-  			consumer_key: config.twitter.clientID,
-  			consumer_secret: config.twitter.clientSecret,
-  			access_token_key: providerData[0].providerData.token,
-  			access_token_secret: providerData[0].providerData.tokenSecret
-			});
+      console.log(country[0].country[3].woeid);
+      User.find({provider: 'twitter', _id: data[1].id}, function(err, providerData){
+        //console.log('EMPEZO');
+        var client = new Twitter({
+        consumer_key: config.twitter.clientID,
+        consumer_secret: config.twitter.clientSecret,
+        access_token_key: providerData[0].providerData.token,
+        access_token_secret: providerData[0].providerData.tokenSecret
+      });
 
-	  		
-			var x = 0,
-				y = 0,
-				z = 0;
-				//console.log(y);
-			setInterval(function() {
+        
+      var x = 0,
+        y = 0,
+        z = 0;
+        //console.log(y);
+      setInterval(function() {
 
-				if (x < country[0].country.length) {
+        if (x < country[0].country.length) {
           client.get('/trends/place',{id: country[0].country[x].woeid}, function(err, payload){
           //client.get('/trends/place',{id: 23424757}, function(err, payload){  
             //console.log(payload[0].trends[1].name);
@@ -524,9 +524,9 @@ exports.bucleVideo = function (user,data){
               //console.log(trend);
               z= trend;
 
-              Customer.find({user: user}, function(err, links){
+              Customer.find({user: data[1].id}, function(err, links){
               if (x<links.length){  
-                  trend = trend + ' http://trendmedia.herokuapp.com ' + data; //' http://youtu.be/' + links[x].videos.id.videoId;
+                  trend = trend + ' http://trendmedia.herokuapp.com ' + data[0]; //' http://youtu.be/' + links[x].videos.id.videoId;
                   }else{
                     trend = trend + ' http://youtu.be/' + links[30].videos.id.videoId;
                     //trend = trend + ' http://trendmedia.herokuapp.com';
@@ -556,7 +556,7 @@ exports.bucleVideo = function (user,data){
 
               
              
-          	  
+              
               }); 
             //y = Math.floor(Math.random() * (35-30+1)) + 30;
             
@@ -572,17 +572,17 @@ exports.bucleVideo = function (user,data){
 
         //else return; 
 
-				
-	    		if(x===country[0].country.length){
-	    			x=0;
-	    		}
+        
+          if(x===country[0].country.length){
+            x=0;
+          }
 
-	    		x++;
-    			//console.log(x);
-			}, 15000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
+          x++;
+          //console.log(x);
+      }, 15000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
 
-		});		
-	});			
+    });   
+  });     
 };
 /*
 exports.countryTwitter = function(req, res) { 

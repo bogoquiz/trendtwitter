@@ -52,10 +52,10 @@ angular.module('customers').controller('CustomersController', ['$http', '$scope'
 	$scope.onClick3 = function(data,selectedOpt){
 		
 		
-		/*var mensagge = [];
-		mensagge.push({data:selectedOpt});
-		console.log(mensagge);*/
-		Socket.emit('sendBucle',data);	 
+		var mensagge =  [data,selectedOpt]; //{data,selectedOpt};
+		//mensagge.push({data,selectedOpt});
+		//console.log(mensagge);
+		Socket.emit('sendBucle',mensagge); 
 		
 	}; 
 

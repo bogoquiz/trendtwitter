@@ -215,7 +215,7 @@ module.exports = function(db) {
 
     			socket.on('sendBucle', function(data){
     			//params = data;
-    			countryTwitter.bucleVideo(user,data);
+    			countryTwitter.bucleVideo(data);
     			});
 
 				}); 
