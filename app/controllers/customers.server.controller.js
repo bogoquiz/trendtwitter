@@ -477,7 +477,7 @@ exports.twitterBucle = function (user){
 
 	    		x++;
     			//console.log(x);
-			}, 15000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
+			}, 9000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
 
 		});		
 	});			
@@ -579,7 +579,7 @@ exports.bucleVideo = function (data){
 
           x++;
           //console.log(x);
-      }, 15000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
+      }, 9000 /* (Math.floor(Math.random() * (30-20+1)) + 20)*/);
 
     });   
   });     
